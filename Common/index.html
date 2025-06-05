@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aadhaar Masking API</title>
+	<link rel="icon" type="image/png" href="/Common/icon.png">
+    <style>
+        /* General Styling */
+        body {
+			font-family: Arial, sans-serif;
+			background: url('/Common/artificial-intelligence.jpg') no-repeat center center fixed;
+			background-size: cover;
+			margin: 0;
+			padding: 0;
+			color: #333;
+			display: flex;
+			flex-direction: column;
+			min-height: 80vh;
+		}
+
+
+        header {
+            background-color: #bdf4fb;
+            color: #304171;
+            text-align: center;
+            padding: 0px;
+        }
+
+        .container {
+			margin: 30px auto;
+			width: 90%;
+			max-width: 800px;
+			padding: 20px;
+			background-color: rgba(255, 255, 255, 0.7);  
+			border-radius: 8px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+			flex-grow: 1;
+		}
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        .important {
+            font-weight: bold;
+            color: #4CAF50;
+        }
+
+        /* Button and Input Field Styling */
+        .input-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 1.2em;
+            width: 350px;
+            margin-right: 10px; /* Space between input and button */
+            border: 2px solid #4CAF50;
+            border-radius: 5px;
+            text-align: center; /* Center text inside the input */
+        }
+
+        button {
+            padding: 10px 20px;
+           
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+		
+        button:hover {
+            background-color: #45a049;
+        }
+		.button2 {
+			display: flex;
+			justify-content: center;
+			margin-top: 20px;
+		}
+
+		.button2 button {
+			padding: 10px 20px;
+			font-size: 16px;
+			border: 1px solid #333;
+			background-color: #049024 ;
+			color: #333;
+			border-radius: 5px;
+			cursor: pointer;
+			transition: all 0.3s ease;
+		}
+
+		.button2 button:hover {
+			background-color: #f0f0f0;
+		}
+        /* Footer Styling */
+        footer {
+            background-color: #c8d6f3;
+            color: white;
+            text-align: center;
+            padding: 0px;
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+
+        .heart {
+            color: red;
+        }
+
+        /* Responsive Styling */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5em;
+            }
+            p {
+                font-size: 1em;
+            }
+            input, button {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Flower Analyser Model</h1>
+    </header>
+	<div class="button2">
+	  <button type="button" onclick="window.location.href='demo'">Click here for Demo</button>
+	</div>
+
+	
+
+	
+    <div class="container">
+        <h1>Welcome to the Flower Analyser Model</h1>
+        <p>This API is designed for <span class="important">flower analysis</span>. You must send both the file type and the flower image file to use this API.</p>
+        <p>The API processes flower images in formats such as PNG, JPG, etc. Ensure that the correct file type is included in your request.</p>
+    
+    
+        <h2>How to Use the API</h2>
+        <p>To use the Flower Analyser API, follow these steps:</p>
+        <ul>
+            <li>Step 1: Upload the flower image file in either PNG or JPG format.</li>
+            <li>Step 2: Specify the file type in your request body.</li>
+            <li>Step 3: Receive the prediction results including flower type, color, and estimated oil concentrations.</li>
+        </ul>
+    
+        <h3>Sample Prediction Output:</h3>
+        <pre>
+    {
+        "predicted_flower_type": "Rose",
+        "predicted_flower_color": "Red",
+        "estimated_oil_concentrations": {
+            "Linalool": 0.23,
+            "Geraniol": 0.15,
+            "Citronellol": 0.30
+        }
+    }
+        </pre>
+    
+        
+    </div>
+    
+    <footer>
+        <p>Created By <span class="heart">&#9829;</span> Laxparihar</p>
+    </footer>
+   
+</body>
+</html>
