@@ -43,7 +43,7 @@ Flower_Analyser/
 
 ```bash
 # Clone the repo
-git clone 
+git clone https://github.com/laxparihar/Flower_Analyser.git
 cd Flower_Analyser
 
 # Install dependencies
