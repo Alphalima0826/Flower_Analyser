@@ -58,6 +58,14 @@ From inside yolov7/:
 
 python detect.py --weights yolov7.pt --conf 0.25 --img-size 640 --source ../images --save-txt --project predictions --name yolov7_results --exist-ok
 
+# if above commond not proper 
+python detect.py --weights best.pt --img 640 --conf 0.1 --iou-thres 0.3 --source ../images --save-txt --project predictions --name yolov7_results --exist-ok
+
+# Check That Filenames Match Exactly
+# Each file in predictions/yolov7_results/labels/ must match a file in ground_truth/labels/.
+diff <(ls predictions/yolov7_results/labels/) <(ls ground_truth/labels/)
+
+
 🔹 7. Evaluate Predictions (YOLOv7 Evaluation Script)
 
 Create evaluation_utils.py inside yolov7/ directory with the full metrics code.
