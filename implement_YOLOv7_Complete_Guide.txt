@@ -1,0 +1,112 @@
+📁 YOLOv7 Complete Guide for Linux & Windows (Training + Evaluation + Inference)
+
+🔹 1. Clone the YOLOv7 Repository
+
+Linux:
+
+git clone https://github.com/WongKinYiu/yolov7.git
+cd yolov7
+
+Windows (Git Bash or PowerShell):
+
+git clone https://github.com/WongKinYiu/yolov7.git
+cd yolov7
+
+🔹 2. Create and Activate Virtual Environment
+
+Linux:
+
+sudo apt update
+sudo apt install python3.10 python3.10-venv python3.10-dev -y
+python3.10 -m venv yolov7env
+source yolov7env/bin/activate
+
+Windows (CMD or PowerShell):
+
+python -m venv yolov7env
+yolov7env\Scripts\activate
+
+🔹 3. Install Required Dependencies
+
+pip install --upgrade pip
+pip install torch==1.13.1 torchvision==0.14.1 torchaudio==0.13.1
+pip install -r requirements.txt
+
+🔹 4. Download Pretrained Weights
+
+wget https://github.com/WongKinYiu/yolov7/releases/download/v0.1/yolov7.pt
+
+Or manually download yolov7.pt and place it in yolov7/ directory.
+
+🔹 5. Prepare Your Project Folder Structure
+
+/your_project/
+├── images/
+│ ├── img1.jpg
+│ ├── img2.jpg
+│ └── ...
+├── ground-truth/
+│ └── labels/
+│ ├── img1.txt
+│ ├── img2.txt
+├── yolov7/ ← cloned repo
+└── evaluation_utils.py
+
+🔹 6. Run Inference (Prediction)
+
+From inside yolov7/:
+
+python detect.py --weights yolov7.pt --conf 0.25 --img-size 640 --source ../images --save-txt --project predictions --name yolov7_results --exist-ok
+
+🔹 7. Evaluate Predictions (YOLOv7 Evaluation Script)
+
+Create evaluation_utils.py inside yolov7/ directory with the full metrics code.
+
+Then run:
+
+python evaluation_utils.py
+
+Ensure the file paths for prediction and ground-truth are correctly set in the script.
+
+🔹 8. Fix for CPU Training: Patch loss.py
+
+Edit yolov7/utils/loss.py
+
+Find lines like:
+
+torch.tensor([], device='cuda:0', dtype=torch.int64)
+
+Replace with:
+
+device = targets.device
+torch.tensor([], device=device, dtype=torch.int64)
+
+Do this wherever device='cuda:0' is hardcoded.
+
+🔹 9. Custom Training Command (Linux & Windows)
+
+python train.py --img 640/416 --batch 16 --epochs 50 --data custom_data.yaml --weights '' --cfg cfg/training/yolov7.yaml --device cpu
+
+
+Note:
+
+For GPU, change --device cpu → --device 0
+
+If you get "Killed" errors: reduce batch size (e.g. --batch 2)
+
+🔹 10. Create custom_data.yaml (example)
+
+path: ../
+train: images
+val: images
+names:
+0: cat
+1: dog
+2: bird
+for example :-
+train: ../dataset/images/train
+val: ../dataset/images/val
+
+nc: 5
+names: ["Aadhar_Name", "Aadhar_Number", "Pan_Number", "Pan_Name", "Pan_Father_Name"]
+
