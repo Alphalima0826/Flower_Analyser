@@ -61,6 +61,10 @@ python detect.py --weights yolov7.pt --conf 0.25 --img-size 640 --source ../imag
 # if above commond not proper 
 python detect.py --weights best.pt --img 640 --conf 0.1 --iou-thres 0.3 --source ../images --save-txt --project predictions --name yolov7_results --exist-ok
 
+Manually
+python detect.py --weights runs/train/exp4/weights/best.pt --source path_to_image --save-txt --save-conf --img 640
+
+
 # Check That Filenames Match Exactly
 # Each file in predictions/yolov7_results/labels/ must match a file in ground_truth/labels/.
 diff <(ls predictions/yolov7_results/labels/) <(ls ground_truth/labels/)
